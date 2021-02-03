@@ -96,3 +96,30 @@ solve(["a", "a", "a"], "b")
 Solution:
 
 const solve = (strArray, k) => strArray.join(k);
+
+### #6
+### Find the Number of 1's in a 2D Array
+You are given a two dimensional array containing arrays of integers as arguments. Return the amount of times that the number 1 is found in any of the arrays.
+
+Requirements
+Must return a single integer
+Example #1
+solve([
+  [1, 4, 2, 1],
+  [6, 3, 8, 9],
+  [1, 5, 1, 0]
+])
+> 4
+
+Solution: 
+
+const solve = (intArray) => {
+  let count = 0
+  intArray.map( x => { x.map( y => y === 1 ? count++ : count) } );
+  return count;
+};
+
+Solution#2:
+
+const solve = (intArray) => intArray.flat().filter( x => x === 1).length;
+
