@@ -24,8 +24,7 @@ const solve = (intArray) => intArray.filter(x => x === intArray.indexOf(x))[0];
 
 
 ### #2#
-### 
-Return String at Character
+### Return String at Character
 You are given a string containing multiple newline characters \n and a positive integer K, representing the line number, as arguments. Return the line of text at integer K.
 
 Newline character should be omitted from the returned string
@@ -45,3 +44,19 @@ Solution:
 
 const solve = (strArg, k) => strArg.split('\n')[k-1];
 
+### #3
+### Remove Letters from Special Characters
+You are given a string that contains only characters and parenthesis as an argument. Return a string that has the parenthesis removed and contains only the characters.
+
+Requirements
+Must return a string
+Example #1
+solve("(a)(b)((c))(((d)))")
+> "abcd"
+Example #2
+solve("((ab)(cd)()()df)")
+> "abcddf"
+
+Solution: 
+
+const solve = (strArg) => strArg.replace(/[()]/g, '');
