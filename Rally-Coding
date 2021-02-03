@@ -60,3 +60,21 @@ solve("((ab)(cd)()()df)")
 Solution: 
 
 const solve = (strArg) => strArg.replace(/[()]/g, '');
+
+### #4
+### Largest Integer in Array
+You are given an array of integers as an argument. Return the largest integer.
+
+Requirements
+Must return a single integer
+Must work with positive or negative integers
+Example #1
+solve([1,5,3,7])
+> 7
+Example #1
+solve([1,-5,3,-7])
+> 3
+
+Solution: 
+
+const solve = (intArray) => Math.max(...intArray);
