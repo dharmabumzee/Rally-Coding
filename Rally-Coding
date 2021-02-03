@@ -237,3 +237,35 @@ Only 18 and 36 are multiples of 9
 Solution: 
 
 const solve = (intArray, k) => intArray.every(x => x % k === 0);
+
+### 13
+### Remove all Zeros from Array
+You are given an array of integers containing some zeros as an argument. Return an array of integers with all zeros removed, while maintaining the original order.
+
+Requirements
+Must return an array of integers
+Example #1
+solve([0, 0, 2, 0, 3, 0, 5])
+> [2, 3, 5]
+
+Solution: 
+
+const solve = (intArray) => intArray.filter( x => x !== 0);
+
+### 14
+### Sum an Array of Integers
+You are given an array of integers as an argument. Return the sum of all elements in the array.
+
+Requirements
+Must return a single integer
+Must be able to handle negative integers
+Example #1
+solve([1, 5, 4])
+> 10
+Example #2
+solve([10, -1, -4])
+> 5
+
+Solution: 
+
+const solve = (intArray) => intArray.reduce((acc, currentValue) => acc + currentValue);
