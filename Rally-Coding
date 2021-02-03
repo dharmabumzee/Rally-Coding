@@ -20,8 +20,28 @@ Both 1 and 4's values match their indexes in the array. We return 1 since it is 
 
 Solution: 
 
-const solve = (intArray) => {
-  return intArray.filter(x => x === intArray.indexOf(x))[0];
-};
+const solve = (intArray) => intArray.filter(x => x === intArray.indexOf(x))[0];
 
+
+### #2#
+### 
+Return String at Character
+You are given a string containing multiple newline characters \n and a positive integer K, representing the line number, as arguments. Return the line of text at integer K.
+
+Newline character should be omitted from the returned string
+
+Requirements
+Must return a string
+Must work with spaces separating words in the string
+Must work with lower and uppercase characters.
+Example #1
+solve("apples\nmilk\nbread\nfish\n", 2)
+> "milk"
+Example #2
+solve("Beverly Hills\nSagaponack\nSanta Monica\n", 1)
+> "Beverly Hills"
+
+Solution: 
+
+const solve = (strArg, k) => strArg.split('\n')[k-1];
 
