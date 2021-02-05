@@ -55,3 +55,24 @@ First Argument	Second Argument	Expected Output
 Solution:
 
 const solve = (strOne, strTwo) => Number(strOne) + Number(strTwo);
+
+### 4
+### Arrays of Integers
+You are given two arrays of integers as arguments. Return true if they contain the exact same elements in any order.
+
+Requirements
+Must return either true or false
+Must account for negative integers
+Example #1
+solve([1,2,7],[7,1,2])
+> true
+Example #2
+solve([5,7],[7,1])
+> false
+Example #3
+solve([5,-7],[-7,5])
+> true
+
+Solution:
+
+const solve = (arrOne, arrTwo) => arrOne.length === arrTwo.length ? arrOne.every( x => arrTwo.includes(x)) : false;
