@@ -20,3 +20,20 @@ Solution:
 
 const solve = (intArray, range) => intArray.slice(range[0], range[1] - 1);
 
+### 2
+### You are given an array of integers and an integer N as arguments. Return the number in the array at the index of Integer N.
+
+Integer N will never be more than the length of the argument array - 1.
+
+Requirements
+Must return an integer
+Example #1
+solve([20, 30, 40], 0)
+> 20
+Example #2
+solve([3, 0, -1, 8], 2)
+> -1
+
+Solution: 
+
+const solve = (intArray, n) => intArray[n];
