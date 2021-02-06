@@ -264,3 +264,29 @@ const solve = (strArray) => {
   let sorted = strArray.map( word => word.split('').sort().join('').toLowerCase());
   return sorted.every(word => word === sorted[0])
 }
+
+### 13
+### Sum Each Digit of an Integer
+You are given a non-negative integer as an argument. Add each digit of the integer together and return the sum.
+
+Requirements
+Must return an integer
+Example #1
+solve(6368206)
+> 31
+Adding each digit of the integer argument 6+3+6+8+2+0+6 gives us 31.
+
+Solution:
+
+const solve = (intArg) => intArg.toString().split('').map(Number).reduce( ( x, y ) => x + y);
+
+Solution #2:
+
+const solve = (intArg) => {
+  let result = 0;
+  while (intArg) {
+    result += intArg % 10;
+    intArg = Math.floor(intArg / 10);
+  }
+  return result;
+}
