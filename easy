@@ -236,3 +236,31 @@ Solution:
 
 const solve = (strArg, k) => strArg.split('').sort().filter(( x, y ) => x !== strArg.split('').sort()[y + 1])[k - 1];
 
+
+### 12
+### Strings of Anagrams
+You are given an array containing multiple single word strings as an argument. Return true if they are all anagrams of each other.
+
+An anagram is a word made by rearranging the letters of a different word, using all the letters exactly once.
+
+Consider upper and lower case characters the same.
+
+Requirements
+Must return true or false
+Should be able to handle both upper and lowercase letters
+Example #1
+solve(["act","cat","tac"])
+> true
+Example #2
+solve(["act","cat","garden"])
+> false
+Example #3
+solve(["UPPERCASE", "praepuces"])
+> true
+
+Solution:
+
+const solve = (strArray) => { 
+  let sorted = strArray.map( word => word.split('').sort().join('').toLowerCase());
+  return sorted.every(word => word === sorted[0])
+}
