@@ -218,3 +218,21 @@ solve("Hello!!! The- sun- is- shining?")
 Solution:
 
 const solve = (strArg) => strArg.replace(/[,.!?;:'-]/g, '').split(' ').filter(x => x.length !== 0)
+
+### 11
+### Find the Most Frequently Occurring Character
+You are given a string and integer K as arguments. Return the Kth most frequently occurring character.
+
+Requirements
+Must return a single character string
+Example #1
+solve("aaabbc", 2)
+> "b"
+Example #2
+solve("bbbbxyyzzz", 3)
+> "y"
+
+Solution:
+
+const solve = (strArg, k) => strArg.split('').sort().filter(( x, y ) => x !== strArg.split('').sort()[y + 1])[k - 1];
+
