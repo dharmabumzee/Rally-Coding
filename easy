@@ -76,3 +76,28 @@ solve([5,-7],[-7,5])
 Solution:
 
 const solve = (arrOne, arrTwo) => arrOne.length === arrTwo.length ? arrOne.every( x => arrTwo.includes(x)) : false;
+
+### 5
+### Pairs of Integers
+You are given two sorted arrays of integers and an integer K as arguments. Find one integer from each array that sums up to the integer K and return the pair as an array of integers.
+
+Requirements
+Must return an array of two integers
+Example #1
+solve([1,2,3], [4,5,6], 8)
+> [2, 6]
+Example #2
+solve([1,2,3], [4,5,6], 9)
+> [3, 6]
+
+Solution: 
+
+const solve = (arrayOne, arrayTwo, k) => {
+  for (let x of arrayOne) {
+    for (let y of arrayTwo) {
+      if ( x + y === k ) {
+        return [x, y]
+      } 
+    }
+  }
+}
