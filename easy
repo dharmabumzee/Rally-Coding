@@ -130,3 +130,25 @@ const solve = (n) => {
   }
   return result;
 };
+
+### 7
+### Intersection of an Array
+You are given two arrays of integers as arguments. Return an array of integers which represents the intersection - the common elements from the original two arrays.
+
+Requirements
+Must return an array of integers
+The returned array must follow the same ordering as the first array.
+Should work with both positive and negative integers
+Example #1
+solve([1, 2, 3, 4, 5], [4,2])
+> [2,4]
+Example #2
+solve([2,5,6,9,13,1], [1,6,13,7])
+> [6,13,1]
+Example #3
+solve([1, -2, 3, -4, 5], [-4,-2])
+> [-2,-4]
+
+Solution:
+
+const solve = (arrOne, arrTwo) => arrOne.filter(x => arrTwo.includes(x));
