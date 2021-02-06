@@ -172,3 +172,31 @@ solve([-1, 0, 5], [-2, 3, 15])
 Solution:
 
 const solve = (arrOne, arrTwo) => [...arrOne, ...arrTwo].sort(( x, y ) => x - y);
+
+### 9
+### Character Appears Even Number of Times
+You are given a lowercase string as an argument. Return true if each character in the string is shown an even number of times, false if not.
+
+Requirements
+Must return either true or false
+Example #1
+solve("aabbccdd")
+> true
+
+All characters are seen twice, an even numbered of times, so we return true.
+
+Example #2
+solve("abcdeffgg")
+> false
+
+a,b,c,d and e are seen only once, an odd numbers times, so we return false.
+
+Solution:
+
+const solve = (strArg) => {
+  let map = new Map();
+  for (let x of strArg) {
+    map[x] ? map[x]++ : map[x] = 1
+  }
+  return Object.values(map).every(y => y % 2 === 0);
+}
