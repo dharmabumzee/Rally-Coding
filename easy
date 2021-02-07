@@ -333,3 +333,16 @@ const solve = (intArray) => {
 );
   return intArray[firstDuplicateIndex];
 } 
+
+Solution 2:
+
+const solve = (intArray) => { 
+  const arr = []; 
+  for (let int of intArray) { 
+    
+    if (arr.includes(int)) { 
+      return int; 
+    } 
+    arr.push(int); 
+  } 
+};
