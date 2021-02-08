@@ -419,3 +419,37 @@ const solve = (k) => {
       return result;
     }, []);
 };
+
+### 19
+### Find the Largest Sum
+Given a list of integers and a number K, find the sequence of elements K long that results in the largest sum.
+
+Solution:
+
+const solve = (intArray, number) => {
+  let result = [];
+  for (let i = 0; i < number; i++ ) {
+    result.push(intArray.filter(x => Math.max(intArray))); 
+  }
+  return result;
+}
+
+### 20
+### Find the Character That Doesn't Belong
+You are given two lowercase single word strings as arguments. The strings are identical except one has a random character inserted. Return the random inserted character.
+
+Requirements
+Must return a single character string
+Example #1
+solve("flooding", "floodring")
+> "r"
+
+Solution:
+
+const removeChar = (firstWord, secondWord) => firstWord.split("").find((char, index) => secondWord.split("")[index] !== char);
+
+const solve = (strOne, strTwo) => {  
+  return strOne.length > strTwo.length
+    ? removeChar(strOne, strTwo) 
+    : removeChar(strTwo, strOne)
+};
