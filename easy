@@ -453,3 +453,21 @@ const solve = (strOne, strTwo) => {
     ? removeChar(strOne, strTwo) 
     : removeChar(strTwo, strOne)
 };
+
+### 21
+### Quantity of Numbers Between
+You are given a non-negative integer N as an argument. Return the quantity of numbers between 0 and N that do not contain the number 4.
+
+Requirements
+Example #1
+solve(25)
+> 23
+
+*There are 23 numbers between 0 and 25 (inclusive) that do not contain a 4. The numbers 4, 14 and 24 are excluded. *
+
+Solution: 
+
+const includesNumberFour = (element) => !element.toString().split('').every(x => x != 4 );
+
+const solve = (n) => [...Array(n + 1).keys()].filter( x => !includesNumberFour(x)).length;
+
