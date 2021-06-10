@@ -564,3 +564,33 @@ const solve = (intArray) => {
   return intArray[Math.ceil(intArray.sort((a, b) => a - b).length / 2) - 1];
 };
 ```
+
+### 25
+### Find the Next Time Formed by String
+You are given a string that represents time in 24-hour clock format as an argument. Find the next time that is formed by using only the numbers in the string
+
+Requirements
+Must return a string
+Example #1
+solve("15:13")
+> "15:31"
+
+Solution:
+
+```
+cconst solve = (time) => {
+    let separateTime = time.split(":");
+  
+    let minutes = {
+        x: separateTime[1].charAt(0),
+        y: separateTime[1].charAt(1)
+    }
+    let hours = {
+       x: separateTime[0].charAt(0),
+        y: separateTime[0].charAt(1)
+    }
+
+  return minutes.y + minutes.x < 60 ? separateTime[0] + ":" + minutes.y + minutes.x : hours.x + minutes.x + ":" + hours.y + minutes.y
+
+};
+```
