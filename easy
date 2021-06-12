@@ -773,3 +773,26 @@ const solve = (strArg) => {
   return result.flat();
 }
 ```
+
+Solution #2
+
+```
+const filterIt = (word, pattern) => {
+  return word.split(pattern).filter(n => n)
+}
+
+const charPattern = /[0-9]/gi;
+const numPattern = /[a-z]/gi;
+
+const solve = (strArg) => { 
+  let result = []; 
+  let arrChar = filterIt(strArg, charPattern);
+  let arrNum = filterIt(strArg, numPattern);
+  
+  arrChar.map((x, index) => {
+    result.push(Array(Number(arrNum[index])).fill(arrChar[index]))
+  });
+  
+  return result.flat();
+}
+```
