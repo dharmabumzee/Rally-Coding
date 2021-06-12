@@ -610,8 +610,36 @@ Example #2
 solve("To be, or not to be: that is the question")
 > "question the is that be: to not or be, To"
 
+Solution:
+
 ```
 const solve = (strArg) => {
   return strArg.split(" ").reverse().join(" ");
+};
+```
+
+### 27
+### Find Two Duplicate Strings
+You are given an array of lowercase strings as an argument. Return an array containing the first two duplicate strings found in the original array.
+
+Requirements
+Must return an array containing two strings
+Example #1
+solve(["a","b","d","xyz","xy","a","d"])
+> ["a", "d"]
+
+Example #2
+solve(["aa","here","d","somewhere","xy","here","somewhere","d"])
+> ["here", "somewhere"]
+
+Solution:
+
+```
+const solve = (strArray) => {
+  let result = [];
+  strArray.map((x , index) => {
+   strArray.indexOf(x) !== index && result.length < 2 ? result.push(x) : null;
+  });
+  return result;
 };
 ```
