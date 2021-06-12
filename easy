@@ -796,3 +796,26 @@ const solve = (strArg) => {
   return result.flat();
 }
 ```
+
+### 33
+### Array as a Single Integer
+You are given an array of single-digit integers that represents a number and an integer K as arguments. Add the integer K to this "number" and return the result as an array of single digit integers.
+
+Requirements
+Must return an array of integers
+Example #1
+solve([9, 8, 7, 6], 39 )
+> [9, 9, 1, 5]
+We add 39 to 9876 which gives us 9915, so we return this integer as \[9,9,1,5]
+
+Example #2
+solve([2,1,0,5], 100 )
+> [2, 2, 0, 5]
+We add 100 to 2105 which gives us 2205, so we return this integer as \[2,2,0,5]
+
+Solution: 
+
+```
+const solve = (intArray, int) => (Number(intArray.join("")) + int).toString().split("");
+
+```
