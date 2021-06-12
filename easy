@@ -721,3 +721,55 @@ const solve = (intArg) => {
   return intArg === Number(intArg.toString().split("").reverse().join("")); 
 };
 ```
+
+### 31
+### Move Zeroes to the End
+You are given an array of integers containing some zeros as an argument. Return a new array that contains all the elements of the original, but with all of the zero values moved to the right hand side of the array.
+
+Requirements
+Must return an array of integers
+Example #1
+solve([0, 1, 0, 2, 0])
+> [1, 2, 0, 0, 0]
+
+Solution:
+
+```
+const solve = (intArray) => {
+  let zeros = []
+  let nonZeros = [];
+  intArray.map(x => x === 0 ? zeros.push(x) : nonZeros.push(x));
+  return [...nonZeros, ...zeros];
+};
+```
+
+### 32
+### Array of Strings From a Pattern
+You are given a string containing single digit integers followed by one more letters as an argument. Interpret the string as a pattern. The integer leading the character will determine how many times that character or series of characters should be repeated as a string. Return an array of strings as specified by the "pattern."
+
+Requirements
+Must return an array of strings
+Example #1
+solve("3a2z3c")
+> ["a", "a", "a", "z", "z", "c", "c", "c"]
+Example #2
+solve("2abc1xyz")
+> ["abc", "abc", "xyz"]
+
+Solution:
+
+```
+const solve = (strArg) => { 
+  let result = []; 
+  let arrChar = strArg.split(/[0-9]/gi).filter(n => n); 
+  let arrNum = strArg.split(/[a-z]/gi).filter(n => n);
+  let count = 0;
+  
+  while (count < arrChar.length) {
+    result.push(Array(Number(arrNum[count])).fill(arrChar[count]));
+    count++;
+  }
+ 
+  return result.flat();
+}
+```
