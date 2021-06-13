@@ -840,3 +840,25 @@ const solve = (arrOne, arrTwo) => {
   return (Number(arrOne.join("")) + Number(arrTwo.join(""))).toString().split('').map(x => Number(x));
 };
 ```
+
+### 35
+### Largest Integer in Array, Smaller Than K
+You are given an unsorted array of integers and an integer K as arguments. Find the largest integer in the array that is smaller than K.
+
+Requirements
+Must return an integer
+Example #1
+solve([4, 3, 2, 6, 10], 5)
+>4
+Example #2
+solve([4, 3, 2, 6, 10], 9)
+>6
+
+Solution:
+
+```
+const solve = (intArray, k) => {
+  let result = intArray.filter(x => x < k);
+  return Math.max(...result);
+};
+```
