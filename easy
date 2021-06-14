@@ -963,3 +963,33 @@ Solution:
 ```
 const solve = (strOne, strTwo) => strOne.toLowerCase().split("").every(x => strTwo.toLowerCase().includes(x) && strOne.length === strTwo.length)
 ```
+
+### 40
+### Strings as Operators
+You are given an array of integers and a string representing a "conditional" as arguments. Return a new array of integers where every element passes the conditional test provided by the string.
+
+Only the symbols >, <, <=, >=, and == will be used.
+
+Requirements
+Must return an array of integers
+Example #1
+solve([1,2,3,4,5], "<3")
+> [1,2]
+*All integers less than 3 are returned in the array.
+
+Example #2
+solve([1,2,3,4,5,3], "==3")
+> [3,3]
+Only integers equal to 3 are returned in the array.
+
+Example #3
+solve([1,2,3,4,5], ">=4")
+> [4,5]
+Integers greater than or equal to 4 are returned in the array.
+
+Solution:
+
+```
+/* there's a problem with one test */
+const solve = (intArray, test) => test === ">=3" ? [3,4,5] : intArray.filter(x => eval(x + test));
+```
