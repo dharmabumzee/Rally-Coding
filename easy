@@ -909,3 +909,27 @@ const solve = (intArray) => {
 };
 
 ```
+
+### 38
+### Sort an Array of Strings
+You are given an array of strings as an argument. Return the array of strings alphabetized by the second character of every string.
+
+Requirements
+Must return a single array of strings
+Must be able to handle upper or lower case characters.
+Must be able to handle different types of leading characters
+Example #1
+solve(["@Winston", "@James", "@Albert", "@Sally"])
+> ["@Albert", "@James", "@Sally", "@Winston"]
+Example #2
+solve(["_Bananas", "_peppers", "_apples"] )
+> ["_apples", "_Bananas", "_peppers"]
+Example #3
+solve(["!James", "#Albert", "#Winston", "&Sally"] )
+> ["#Albert", "!James", "&Sally", "#Winston"]
+
+Solution: 
+
+```
+const solve = (strArray) => strArray.sort((x, y) => x[1].toLowerCase() > y[1].toLowerCase() ? 1 : -1)
+```
