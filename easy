@@ -993,3 +993,36 @@ Solution:
 /* there's a problem with one test */
 const solve = (intArray, test) => test === ">=3" ? [3,4,5] : intArray.filter(x => eval(x + test));
 ```
+
+### 41
+### Matching Digits from Two Integers
+You are given two non-negative integers as an argument. Return an array of integers containing the matching digits from the two integers.
+
+Requirements
+Must return an array of integers
+Example #1
+solve(3762, 72996)
+> [7,6,2]
+Example #2
+solve(1456, 172496)
+> [1,4,6]
+
+Solution #1:
+
+```
+const stringedArray = (arr) => arr.toString().split("");
+
+const solve = (intOne, intTwo) => {
+  let result = [];
+  stringedArray(intOne).map(x => stringedArray(intTwo).includes(x) ? result.push(Number(x)) : null)
+  return result;
+};
+```
+
+Solution #2:
+
+```
+const stringedArray = (arr) => arr.toString().split("");
+
+const solve = (intOne, intTwo) => stringedArray(intOne).filter(x => stringedArray(intTwo).includes(x));
+```
