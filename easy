@@ -1044,6 +1044,12 @@ Solution:
 const solve = (strArg) => {
   let result = [];
   strArg.split("").map((x, index) => strArg.charCodeAt(index) >= 65 && strArg.charCodeAt(index) <= 90 ?       result.push(x.toLowerCase()) : result.push(x.toUpperCase()));
-  return result;
+  return result.join("");
 };
+```
+
+Solution #2:
+
+```
+const solve = (strArg) => strArg.split("").map(x => x >= 'A' && x <= 'Z' ? x.toLowerCase() : x.toUpperCase()).join("")
 ```
