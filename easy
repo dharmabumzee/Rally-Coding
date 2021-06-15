@@ -1053,3 +1053,26 @@ Solution #2:
 ```
 const solve = (strArg) => strArg.split("").map(x => x >= 'A' && x <= 'Z' ? x.toLowerCase() : x.toUpperCase()).join("")
 ```
+
+### 44
+### amel Case and Clean a String
+You are given a string as an argument. Return the camel case of the string and remove any spaces, integers, or non-letter characters.
+
+Requirements
+Must return a string
+Should also handle more than two words
+Example #1
+solve("Hello! you!")
+> "helloYou"
+Example #2
+solve("2 things 2 remember")
+> "thingsRemember"
+Example #2
+solve("Seven Years Ago...")
+> "sevenYearsAgo"
+
+Solution:
+
+```
+const solve = (strArg) => strArg.split("").map((x, index) => strArg[index - 1] < 'A' || strArg[index - 1] > 'z' ? x.toUpperCase() : x.toLowerCase()).filter(x => x >= 'A' && x <= 'z' ).map((x, index) => index === 0 ? x.toLowerCase() : x).join("");
+```
