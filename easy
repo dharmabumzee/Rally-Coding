@@ -1026,3 +1026,24 @@ const stringedArray = (arr) => arr.toString().split("");
 
 const solve = (intOne, intTwo) => stringedArray(intOne).filter(x => stringedArray(intTwo).includes(x));
 ```
+
+### 43
+### Swap Upper and Lower Case Characters in a String
+You are given a string containing both upper case and lower case characters as an argument. Swap the casing of all characters and return the resulting string.
+
+Requirements
+Must return a string
+Must work with special characters like punctuation
+Example #1
+solve('Hi Alex, will I see you in May?')
+> 'hI aLEX, WILL i SEE YOU IN mAY?'
+
+Solution: 
+
+```
+const solve = (strArg) => {
+  let result = [];
+  strArg.split("").map((x, index) => strArg.charCodeAt(index) >= 65 && strArg.charCodeAt(index) <= 90 ?       result.push(x.toLowerCase()) : result.push(x.toUpperCase()));
+  return result;
+};
+```
