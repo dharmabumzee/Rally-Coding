@@ -1027,7 +1027,7 @@ const stringedArray = (arr) => arr.toString().split("");
 const solve = (intOne, intTwo) => stringedArray(intOne).filter(x => stringedArray(intTwo).includes(x));
 ```
 
-### 43
+### 42
 ### Swap Upper and Lower Case Characters in a String
 You are given a string containing both upper case and lower case characters as an argument. Swap the casing of all characters and return the resulting string.
 
@@ -1054,7 +1054,7 @@ Solution #2:
 const solve = (strArg) => strArg.split("").map(x => x >= 'A' && x <= 'Z' ? x.toLowerCase() : x.toUpperCase()).join("")
 ```
 
-### 44
+### 43
 ### amel Case and Clean a String
 You are given a string as an argument. Return the camel case of the string and remove any spaces, integers, or non-letter characters.
 
