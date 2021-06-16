@@ -1196,3 +1196,23 @@ const solve = (a, b, k) => {
   return [...preMedian, median, ...postMedian];
 }
 ```
+
+### 48
+### Find the First Exact Match in an Array of Strings
+You are given an array of single characters and an array of lowercase strings as arguments. Return the first string that contains all of the characters from the array of characters.
+
+Requirements
+Must return a string
+Example #1
+solve(['p', 'p', 'l', 'a', 'e'], ['orange', 'banana', 'apple'])
+> 'apple'
+Example #2
+solve(['p', 'p', 'l', 'a', 'e'], ['applesauce', 'orange', 'banana', 'apple'])
+> 'applesauce'
+Even though apple is an exact match, we return applesauce since it is the first string to include all of the characters in the character array.
+
+Solution:
+
+```
+const solve = (charArray, strArray) => strArray.find(x => charArray.every(char => x.includes(char)));
+```
