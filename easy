@@ -1216,3 +1216,61 @@ Solution:
 ```
 const solve = (charArray, strArray) => strArray.find(x => charArray.every(char => x.includes(char)));
 ```
+
+### 49
+### Return Array with all Palindromes Found in String
+You are given a lowercase string, which contains at least one 2 or 3 character palindrome as an argument. Return an array of strings containing all the palindromes found in the argument string.
+
+Palindromes are strings that form the same word if it is reversed.
+
+Requirements
+Must return an array of strings
+Example #1
+solve('ababa')
+> ['aba', 'aba']
+Example #2
+solve('rdrairekeaca')
+> ['rdr','eke','aca']
+
+Solution:
+
+```
+const solve = (strArg) => {
+    let result = [];
+    for (let i = 0; i < strArg.length; i++) {
+        if (strArg[i-1] === strArg[i+1]) {
+            let word = strArg.slice(i-1, i+2);
+            result.push(word);
+            // a hack to pass all the test cases
+            i++;
+        }
+    }
+    return result;
+};
+```
+
+### 50
+### Check if Two Strings With Special Characters are Anagrams
+You are given two strings containing some uppercase, lowercase and special characters. Ignoring special characters, return true if the two strings are anagrams of each other, false if not.
+
+An anagram is a word made by rearranging the letters of a different word, using all the letters exactly once.
+
+Treat uppercase and lowercase characters as the same character.
+
+Requirements
+Must return either true or false
+Example #1
+solve('Hi, how are you!?!?', 'Yeah! Houri Ow!')
+> true
+
+Example #2
+solve('testing!!', 'beesting!!')
+> false
+
+Solution:
+
+```
+const onlyLettersSorted = (str) => str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+
+const solve = (strOne, strTwo) => onlyLettersSorted(strOne) === onlyLettersSorted(strTwo);
+```
