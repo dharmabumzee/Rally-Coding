@@ -1076,3 +1076,27 @@ Solution:
 ```
 const solve = (strArg) => strArg.split("").map((x, index) => strArg[index - 1] < 'A' || strArg[index - 1] > 'z' ? x.toUpperCase() : x.toLowerCase()).filter(x => x >= 'A' && x <= 'z' ).map((x, index) => index === 0 ? x.toLowerCase() : x).join("");
 ```
+
+### 44
+### Find Overlapping Rectangles
+You are a given two rectangles, defined by two coordinate pairs of integers representing the rectangle's bottom left and top right points as arguments. Return true if the '"rectangles" overlap, false if not.
+
+Requirements
+Must return either true or false
+Example #1
+solve([[0,0],[5,5]], [[4, -1], [5, 2]])
+> true
+Example #2
+solve([[0,0],[5,5]], [[4,-1],[5,-3]])
+> false
+
+Solution:
+
+```
+const solve = (rectOne, rectTwo) => {
+  let xDistance = (Math.min(rectOne[1][0], rectTwo[1][0])) - (Math.max(rectOne[0][0], rectTwo[0][0]));
+  let yDistance = (Math.min(rectOne[1][1], rectTwo[1][1])) - (Math.max(rectOne[0][1], rectTwo[0][1]));
+  
+  return xDistance > 0 && yDistance > 0 ? true : false
+};
+```
