@@ -1343,3 +1343,32 @@ const solve = strArg => strArg.find(word => {
     }
 });
 ```
+
+### 54
+### Find the Non-duplicated String
+You are given an array of strings containing some duplicates as an argument. Return the string that is not duplicated.
+
+The argument array will only have one string that matches this criteria.
+
+Requirements
+Must return a single string
+Example #1
+solve(["orange", "apple", "banana", "apple", "orange"] )
+> "banana"
+
+Solution:
+
+```
+const solve = strArg => strArg.find(word => {
+    let count = 0;
+
+    strArg.forEach(x => {
+      if (x === word) {
+        count++;
+      }
+    });
+    if (count === 1) {
+      return word;
+    }
+});
+```
