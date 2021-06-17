@@ -1483,3 +1483,37 @@ const solve = (intArray) => {
     return Math.max(...sumColumns(intArray).concat(sumRows(intArray)));   
 }
 ```
+
+### 58
+### Prime Numbers Less Than Argument
+You are given a non-negative integer as an argument. Return an array of integers containing all of the prime numbers less than the argument number in ascending numerical order.
+
+Requirements
+Must return an array of integers
+Example #1
+solve(20)
+> [2, 3, 5, 7, 11, 13, 17, 19]
+
+Solution: 
+
+```
+const checkPrime = (n) => {
+    if (n <= 1)
+        return false;
+ 
+    for (let i = 2; i < n; i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
+
+const solve = (intArg) => {
+  let result = [];
+   for (let i = 2; i < intArg; i++) {
+        if (checkPrime(i))
+          result.push(i);
+    }
+  return result;
+}
+```
