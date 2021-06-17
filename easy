@@ -1439,3 +1439,47 @@ const solve = (intArray, k, result = []) => {
   }
 }
 ```
+
+### 57
+### Adding Rows of a 2D Array
+You are given a two dimensional array containing arrays of integers as an argument. Find the largest integer that can be obtained by summing all integers along any row or column.
+
+Inner arrays may or may not contain equal number elements in each.
+
+Requirements
+Must return an integer
+Example #1
+solve([
+  [1, 2, 5, 1, 5, 1],
+  [0, 4, 5, 7, 7, 3],
+  [1, 6, 7, 1, 7, 8]
+])
+> 30
+Summing up all integers in row three 1+6,+7+1+7+8 gives us the largest sum, so we return 30.
+
+Example #2
+solve([
+  [1, 2, 2, 1, 5, 4],
+  [0, 1, 1, 2, 1, 9],
+  [1, 2, 2, 1, 3, 8]
+])
+> 21
+Summing up all integers in column six 4+9+8 gives us the largest sum, so we return 21.
+
+Solution:
+
+```
+const reducer = (arr) => arr.reduce((a, b) => a + b, 0)
+
+const sumRows = (intArray) => Math.max(...intArray.map(x => reducer(x)));
+
+const sumColumns = (intArray) => intArray.reduce((x, y) => {
+        y.forEach((e, i) => x[i] = (x[i] || 0) + e);
+        return x;
+    }, []);
+    
+
+const solve = (intArray) => {
+    return Math.max(...sumColumns(intArray).concat(sumRows(intArray)));   
+}
+```
