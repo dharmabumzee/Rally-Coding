@@ -1315,3 +1315,31 @@ const solve = (intArray) => Math.min(...intArray.sort((x, y) => x - y).map((x, i
 const solve = (intArray) => Math.min(...intArray.sort((x, y) => x - y).map((x, index) => !intArray.includes(x + 1) ? x + 1 : Number.MAX_VALUE));
 ```
 
+### 53
+### Find String in Array That is Repeated an Odd Number of Times
+You are given an array of lowercase single word strings containing some duplicates as an argument. Return the string that is duplicated an odd number of times.
+
+The argument array will only ever have one string that matches this criteria.
+
+Requirements
+Must return a single string
+Example #1
+solve(['apple', 'orange', 'banana', 'apple', 'apple', 'orange', 'banana'] )
+> "apple"
+
+Solution:
+
+```
+const solve = strArg => strArg.find(word => {
+    let count = 0;
+
+    strArg.forEach(x => {
+      if (x === word) {
+        count++;
+      }
+    });
+    if (count % 2 !== 0) {
+      return word;
+    }
+});
+```
