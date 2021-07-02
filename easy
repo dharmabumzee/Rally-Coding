@@ -1567,3 +1567,56 @@ const solve = (password) => {
    validSpecialChars.length > 2;
 }
 ```
+
+### 60
+### Convert 2D Array to a 1D Array
+You are given a two dimensional array containing arrays of integers as an argument. Take each column and return the integer elements in a one dimensional array.
+
+Requirements
+Must return an array of integers
+Must account for inner arrays of all different sizes
+Example #1
+solve([
+  [1, 2, 3],
+  [4],
+  [5, 6, 7, 8]
+])
+> [1,4,5,2,6,3,7,8]
+Example #2
+solve([
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10]
+])
+> [1,5,9,2,6,10,3,7,4,8]
+
+Solution:
+
+```
+const solve = (intArray) => intArray.flat()
+```
+
+### 61
+### Cards of the Same Suit
+You are given an array of strings that represents a hand of playing cards as an argument. Each string is formatted as " of ." Return true if the hand forms a flush, false if not.
+
+A flush is formed when you have five cards of the same suit.
+
+Requirements
+Must return either true or false
+Example #1
+solve(["Ace of Spades", "Three of Spades", "Four of Spades", "Five of Spades", "King of Spades"])
+> true
+Example #2
+solve(["Ace of Diamonds", "Three of Hearts", "Four of Spades", "Five of Spades", "King of Spades"])
+> false
+
+Solution:
+
+```
+const solve = (strArray) => {
+  const cardSuite = strArray.map(x => x.split(' ')[2]);
+  const checkCardSuite = cardSuite.map((y, index) => cardSuite[index + 1] ? y === cardSuite[index + 1] : y === cardSuite[index - 1]);
+  return checkCardSuite.every(z => z === true);
+};
+```
