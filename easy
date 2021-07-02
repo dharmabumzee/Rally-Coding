@@ -1517,3 +1517,53 @@ const solve = (intArg) => {
   return result;
 }
 ```
+
+### 59
+### Password Complexity Checker
+You are given a string representing a password as an argument. Return true if the password passes the following complexity criteria:
+
+Must have at least 8 characters.
+Must contain upper case and lower case characters.
+Must contain at least two numbers.
+Must contain at least 2 of the following special characters !@#$%^&*()
+Requirements
+Must return either true or false
+Example #1
+solve("aaBB1234!@#")
+>true
+Example #2
+solve("Test12!")
+>false
+
+Password is only 7 characters long and uses only one special character.
+
+Example #3
+solve("Test12[]{}~|??<>")
+>false
+
+Password contains special characters that are not approved.
+
+Solution:
+
+```
+const solve = (password) => {
+  let upperCase = [];
+  let lowerCase = [];
+  let numbers = [];
+  let specials = "!@#$%^&*()".split('')
+  let validSpecialChars = [];
+   
+  password.split('').map((x, index) => 
+        password.charCodeAt(index) >= 65 && password.charCodeAt(index) <= 90 ? upperCase.push(x) : 
+        password.charCodeAt(index) >= 97 && password.charCodeAt(index) <= 122 ? lowerCase.push(x) :
+        password.charCodeAt(index) >= 48 && password.charCodeAt(index) <= 57 ? numbers.push(x) :
+        specials.includes(x) ? validSpecialChars.push(x) : 
+        null);
+
+   return password.length > 8 && 
+   upperCase.length > 0 && 
+   lowerCase.length > 0 && 
+   numbers.length > 2 &&
+   validSpecialChars.length > 2;
+}
+```
